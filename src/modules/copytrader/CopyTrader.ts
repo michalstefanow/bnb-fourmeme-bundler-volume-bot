@@ -1,6 +1,7 @@
 import type { Environment } from '../../lib/config.js'
 import { Contract, parseEther } from 'ethers'
-import routerAbi from '../../abis/routerV2.json' assert { type: 'json' }
+import routerAbi from '../../abis/routerV2.json'
+import { Notifier } from '../../lib/notifier.js'
 
 type Ctx = { wallet: any, provider: any, logger: any, dryRun: boolean, env: Environment }
 
@@ -23,6 +24,8 @@ export class CopyTrader {
           const percent = cfg.positionPercent ?? 10
           const spend = (BigInt(parseEther(cfg.maxBnbPerTrade ?? '0.05')) * BigInt(percent)) / BigInt(100)
           await this.quickMirrorBuy(cfg.defaultToken, spend)
+          const notifier = new Notifier({ botToken: this.ctx.env.TELEGRAM_BOT_TOKEN, chatId: this.ctx.env.TELEGRAM_CHAT_ID })
+          await notifier.telegram(`📣 Mirrored trade from <code>${tx.from}</code>`) 
         }
       } catch {}
     })

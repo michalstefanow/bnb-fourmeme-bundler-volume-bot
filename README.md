@@ -1,15 +1,28 @@
 # FourMeme Trading Bot (BNB Chain)
 
-Modular trading toolkit for the Four.meme ecosystem on BNB Chain. Includes sniper, copy‑trader, bundler, and volume bots with on‑chain integration (no third‑party data APIs), CLI, and risk controls.
+Modular trading toolkit for the Four.meme ecosystem on BNB Chain. Ships with sniper, copy‑trader, bundler, and volume bots. Fully on‑chain (no third‑party data APIs), CLI‑driven, and built with strict risk controls.
 
-## Features
-- Sniper: buy new launches fast with slippage control
-- Copy‑trader: mirror selected wallets with position sizing
-- Bundler: batch/multicall routes (e.g., WBNB→TOKEN)
-- Volume bot: rate‑limited buys/sells for organic volume tests
-- Risk controls: slippage, max cost, allow/deny lists
-- MEV‑aware: priority fee tuning, basic anti‑sandwich options
-- Ethers v6, TypeScript, ESM
+## What it does
+- Sniper: buy new launches fast with slippage and deadline control
+- Copy‑trader: mirror selected wallets (size %, caps, dedupe per tx)
+- Bundler: batch routes/multicalls (e.g., WBNB→TOKEN) with timing
+- Volume bot: cadence‑based buy/sell loops for liquidity/organic tests
+- Notifications: optional Telegram alerts on key actions
+- Safety: allow/deny lists, max spend, basic MEV‑aware settings
+
+## How it works (workflows)
+
+1) Sniper
+- Load targets from config → estimate out via router → apply slippage → swap `WBNB→TOKEN` → report tx/receipt → optional Telegram alert.
+
+2) Copy‑Trader
+- Subscribe to pending tx → filter by leader wallets → detect router calls → mirror entry with your sizing → alert.
+
+3) Bundler
+- Read route list → for each route execute (buy legs now, extendable to multicall) → respect deadlines/slippage.
+
+4) Volume Bot
+- Interval loop → buy small size → approve if needed → sell fraction/ALL → repeat with rate limits.
 
 ## Quick Start
 
@@ -24,9 +37,13 @@ npm install
 ```
 
 ### Configure
-Copy `env.example` to `.env` and fill values. Common PancakeSwap V2/WBNB mainnet defaults are included.
+Copy `env.example` to `.env` and fill values (PancakeV2/WBNB mainnet defaults included). Optional Telegram notifications:
+```
+TELEGRAM_BOT_TOKEN=123:ABC
+TELEGRAM_CHAT_ID=123456789
+```
 
-Create a config, or use the examples:
+Configs (use examples):
 - `config.sniper.example.json`
 - `config.copy.example.json`
 - `config.bundle.example.json`
@@ -40,6 +57,16 @@ node dist/index.js copy -c config.copy.example.json
 node dist/index.js bundle -c config.bundle.example.json
 node dist/index.js volume -c config.volume.example.json
 ```
+
+## Bot configuration tips
+- Start with dry‑run; ramp sizes slowly.
+- Use deny lists and verify token/router addresses.
+- Sniper: 300–800 bips slippage is common in fast markets.
+- Copy‑trader: cap per trade and overall daily exposure.
+
+## Telegram & Contact
+- Telegram alerts are optional (set `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`).
+- Contact: t.me/your_contact_here
 
 ## Security
 - Never commit secrets

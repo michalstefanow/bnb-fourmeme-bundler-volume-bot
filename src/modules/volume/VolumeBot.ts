@@ -1,6 +1,6 @@
 import type { Environment } from '../../lib/config.js'
 import { Contract, parseEther } from 'ethers'
-import routerAbi from '../../abis/routerV2.json' assert { type: 'json' }
+import routerAbi from '../../abis/routerV2.json'
 
 type Ctx = { wallet: any, provider: any, logger: any, dryRun: boolean, env: Environment }
 
@@ -47,7 +47,7 @@ export class VolumeBot {
     }
 
     // Sell (ALL) — in practice, set fraction
-    const erc20 = new Contract(token, (await import('../../abis/erc20.json', { assert: { type: 'json' } })).default, wallet)
+    const erc20 = new Contract(token, (await import('../../abis/erc20.json')).default as any, wallet)
     const balance: bigint = await erc20.balanceOf(wallet.address)
     const allowance: bigint = await erc20.allowance(wallet.address, env.ROUTER_V2_ADDRESS)
     if (allowance < balance && !this.ctx.dryRun) {
