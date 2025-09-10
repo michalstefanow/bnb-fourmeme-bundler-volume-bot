@@ -64,20 +64,12 @@ node dist/index.js volume -c config.volume.example.json
 - Sniper: 300–800 bips slippage is common in fast markets.
 - Copy‑trader: cap per trade and overall daily exposure.
 
-## Telegram & Contact
-- Telegram alerts are optional (set `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`).
-- Contact: t.me/your_contact_here
+## Telegram Contact
+- Contact: t.me/@lorine93s
 
 ## Security
 - Never commit secrets
 - Use a dedicated hot wallet
 - Verify token/router addresses
 - Start with dry‑run and small sizes
-
-## Suggested Topics
-`bnb-chain`, `fourmeme`, `memecoin`, `trading-bot`, `sniper-bot`, `copy-trading`, `bundle-transactions`, `market-making`, `pancakeswap`, `ethers`, `typescript`, `mev-protection`, `web3`, `automation`
-
-## License
-MIT
-
 
