@@ -66,6 +66,7 @@ node dist/index.js volume -c config.volume.example.json
 
 ## Telegram Contact
 - Contact: t.me/@lorine93s
+- Email: xsui46941@gmail.com
 
 ## Security
 - Never commit secrets
