@@ -9,6 +9,7 @@ Modular trading toolkit for the Four.meme ecosystem on BNB Chain. Ships with sni
 - Volume bot: cadence‑based buy/sell loops for liquidity/organic tests
 - Notifications: optional Telegram alerts on key actions
 - Safety: allow/deny lists, max spend, basic MEV‑aware settings
+- 
 
 ## How it works (workflows)
 
