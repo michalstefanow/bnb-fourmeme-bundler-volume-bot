@@ -1,0 +1,10 @@
+{
+  "targetList": [
+    { 
+      "tokenContract": "0xTokenAddressPlaceholder", 
+      "maxNativeAmount": "0.05", 
+      "slippageTolerance": 800 
+    }
+  ]
+}
+

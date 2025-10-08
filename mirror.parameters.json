@@ -1,0 +1,9 @@
+{
+  "watchList": [
+    "0xLeaderWalletAddressPlaceholder"
+  ],
+  "primaryToken": "0xTokenToMirrorPlaceholder",
+  "positionRatio": 10,
+  "maxNativePerOperation": "0.05"
+}
+

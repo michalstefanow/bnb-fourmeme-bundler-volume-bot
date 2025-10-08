@@ -1,0 +1,12 @@
+{
+  "routeSequence": [
+    { 
+      "operationType": "acquire", 
+      "tokenContract": "0xTokenAddressPlaceholder", 
+      "nativeAmount": "0.02", 
+      "slippageTolerance": 800, 
+      "deadlineSeconds": 300 
+    }
+  ]
+}
+

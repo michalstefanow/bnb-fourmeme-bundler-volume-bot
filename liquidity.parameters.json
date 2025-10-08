@@ -1,0 +1,7 @@
+{
+  "tokenContract": "0xTokenAddressPlaceholder",
+  "nativeAmount": "0.01",
+  "slippageTolerance": 800,
+  "cycleDelayMs": 15000
+}
+

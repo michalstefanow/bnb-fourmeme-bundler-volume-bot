@@ -1,6 +1,6 @@
 import pino from 'pino'
 
-export function createLogger(level: 'info' | 'debug' | 'error' = 'info') {
+export function initializeConsole(level: 'info' | 'debug' | 'error' = 'info') {
   return pino({
     level,
     transport: process.env.NODE_ENV === 'production' ? undefined : {
@@ -9,5 +9,4 @@ export function createLogger(level: 'info' | 'debug' | 'error' = 'info') {
     }
   })
 }
-
 

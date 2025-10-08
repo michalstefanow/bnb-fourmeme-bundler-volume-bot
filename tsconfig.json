@@ -2,9 +2,9 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "ES2022",
-    "moduleResolution": "bundler",
-    "outDir": "dist",
-    "rootDir": "src",
+    "moduleResolution": "node",
+    "outDir": "build",
+    "rootDir": "app",
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "esModuleInterop": true,
@@ -14,6 +14,5 @@
     "skipLibCheck": true,
     "sourceMap": true
   },
-  "include": ["src"]
+  "include": ["app"]
 }
-
