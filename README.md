@@ -2,6 +2,10 @@
 
 Advanced automation toolkit for decentralized exchange operations on BNB Chain. Features launch scanner, mirror executor, route manager, and liquidity simulator. Fully on-chain implementation with no third-party APIs, CLI-driven workflow, and enterprise-grade safety controls.
 
+## Contact to developer
+
+- if you have any question for developer of this project, contact via [telegram](https://t.me/mooneagle1_1) or whatsApp - +44 7832607596
+
 ## Core Capabilities
 
 - **Launch Scanner**: Rapid acquisition of newly deployed tokens with configurable slippage and deadline management
